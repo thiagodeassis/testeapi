@@ -1,4 +1,0 @@
-/*pega todas as vendas de um determinado produto.*/
-(select count(idVenda) as 'Quantidade de Vendas'
-from rel_venda_produto
-where idProduto = (select id from produto where descricao = <passado pelo usuario>))

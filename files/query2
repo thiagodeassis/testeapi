@@ -1,0 +1,6 @@
+select v.vendedor, count(v.id)
+from vendas v
+where v.vendedor
+in (select distinct v2.vendedor from vendas)
+group by v.vendedor
+having v.data = MONTH(?);
