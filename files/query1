@@ -1,4 +1,3 @@
-/*pega todas as vendas de um determinado produto.*/
-(select count(idVenda) as 'Quantidade de Vendas'
-from rel_venda_produto
-where idProduto = (select id from produto where descricao = ?))
+
+select count(v.id), c.nome from vendas v join clientes c on c.id = v.clienteId where v.id = (select idVenda from rel_venda_produto
+where idProduto = (select id from produto where descricao = ?)) group by c.nome;
